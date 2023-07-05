@@ -35,10 +35,10 @@ null
 It returns Boolean result.
 You can compare only numbers.
 ```agsl
-x > y;
-x >= y;
-x < y;
-x <= y;
+2 > 1; // return true
+1 >= 2; // return false
+1 < 2; // return true
+2 <= 1; // return false
 ```
 
 ### equality
@@ -135,7 +135,7 @@ class Hero{
     }
 }
 
-var batman = new Hero("Batman");
+var batman = Hero("Batman");
 batman.fight; //"Batman is fighting"
 ```
 
