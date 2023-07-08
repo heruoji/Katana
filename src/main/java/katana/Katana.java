@@ -56,7 +56,7 @@ public class Katana {
         }
     }
 
-    private static void run(String source) {
+    public static void run(String source) {
 
         List<Token> tokens = scanTokens(source);
 

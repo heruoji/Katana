@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Katana Playground</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script type="text/javascript">
+        let $rt_stdoutBuffer = "";
+
+        function $rt_putStdoutCustom(ch) {
+            let stdoutElem = document.getElementById("stdout");
+            if (ch === 0xA) {
+                let lineElem = document.createElement("div");
+                lineElem.setAttribute("class", "lineElm")
+                lineElem.appendChild(document.createTextNode($rt_stdoutBuffer));
+                stdoutElem.appendChild(lineElem);
+                stdoutElem.scrollTop = stdoutElem.scrollHeight;
+
+                $rt_stdoutBuffer = "";
+            }
+            else {
+                $rt_stdoutBuffer += String.fromCharCode(ch);
+            }
+        }
+
+        this.$rt_putStdoutCustom = $rt_putStdoutCustom;
+    </script>
+    <script type="text/javascript">
+        let $rt_stderrBuffer = "";
+
+        function $rt_putStderrCustom(ch) {
+            let stdoutElem = document.getElementById("stdout");
+            if (ch === 0xA) {
+                let lineElem = document.createElement("div");
+                lineElem.setAttribute("class", "lineElm")
+                lineElem.appendChild(document.createTextNode($rt_stderrBuffer));
+                stdoutElem.appendChild(lineElem);
+                stdoutElem.scrollTop = stdoutElem.scrollHeight;
+
+                $rt_stderrBuffer = "";
+            }
+            else {
+                $rt_stderrBuffer += String.fromCharCode(ch);
+            }
+        }
+
+        this.$rt_putStderrCustom = $rt_putStderrCustom;
+    </script>
+    <script type="text/javascript" charset="utf-8" src="js/katana.js"></script>
+    <style>
+        body {
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 800px;
+        }
+
+        header{
+            height: 150px;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+        }
+
+        .source-code{
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+        }
+
+        .source-code-head{
+            height: 20px;
+            padding: 5px;
+        }
+
+        .source-code-text{
+            flex: 1;
+        }
+
+        .output {
+            flex: 1;
+            padding: 30px;
+        }
+
+        footer{
+            height: 50px;
+        }
+
+        @media screen and (max-width: 900px){
+            body{
+                width: 100%;
+            }
+        }
+    </style>
+    <script type="application/javascript">
+        function runProgram() {
+            let stdoutElem = document.getElementById("stdout");
+            while (stdoutElem.firstChild) {
+                stdoutElem.removeChild(stdoutElem.firstChild);
+            }
+            let source = document.getElementById("source-code-text").value;
+            main([source])
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h2>Katana Playground</h2>
+    <a href="https://github.com/heruoji/Katana">GitHub</a>
+</header>
+<div class="main">
+    <div class="source-code">
+        <div class="source-code-head">
+            <button onclick="runProgram()">Run</button>
+        </div>
+        <textarea class="source-code-text" id="source-code-text"></textarea>
+    </div>
+    <div class="output" id="stdout">
+    </div>
+</div>
+<footer></footer>
+</body>
+</html>
