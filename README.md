@@ -3,7 +3,7 @@
 This is the repository for Katana that is simple programing language.
 It contains the interpreter.
 
-This project is entirely based on [CRAFTING INTERPRETER](https://craftinginterpreters.com/) Chapter 2.
+This project is entirely based on [CRAFTING INTERPRETERS](https://craftinginterpreters.com/) Chapter 2.
 
 ## What is Katana
 Katana is dynamic typing simple programing language.
