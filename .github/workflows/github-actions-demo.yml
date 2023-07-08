@@ -16,4 +16,4 @@ jobs:
         with:
           name: Package
           path: build/libs
-      - uses: actions/deploy-pages@v3
+      - uses: actions/deploy-pages
