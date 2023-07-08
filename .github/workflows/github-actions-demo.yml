@@ -12,7 +12,7 @@ jobs:
           distribution: 'temurin'
       - name: Build with Gradle
         run: ./gradlew build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v1
         with:
           name: Package
           path: build/libs
