@@ -148,6 +148,10 @@ class ArmedHero extends Hero {
         super.constructor(name);
         this.weapon = weapon;
     }
+
+    fight() {
+        print this.name + " is fighting with " + this.weapon;
+    }
 }
 ```
 
