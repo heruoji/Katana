@@ -18,17 +18,11 @@ jobs:
           distribution: 'temurin'
       - name: Build with Gradle
         run: ./gradlew build
-      - name: create directory
-        run: mkdir build/libs/katana
-      - name: move directory
-        run: cd build/libs/katana
-      - name: confirm
-        run: ls ..
       - name: Unzip war file
-        run: jar -xvf ${{ github.workspace }}/build/libs/katana-1.0-SNAPSHOT.war
+        run: unzip build/libs/katana-1.0-SNAPSHOT.war -d unzip
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: build/libs/katana
+          path: unzip
   # Deployment job
   deploy:
     environment:
