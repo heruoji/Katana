@@ -138,7 +138,7 @@ class Hero{
 }
 
 var batman = Hero("Batman");
-batman.fight; //"Batman is fighting"
+batman.fight(); //"Batman is fighting"
 ```
 
 ### Inheritance
